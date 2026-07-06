@@ -1,5 +1,4 @@
-# SEO TODO: reemplazar https://example.com por la URL pública real antes de publicar.
 User-agent: *
 Allow: /
 
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://360fitness.netlify.app/sitemap.xml
