@@ -350,14 +350,14 @@ h3 {
   padding-left: max(16px, calc((100% - var(--max)) / 2));
   overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(16, 16, 16, 0.22) 0, rgba(242, 238, 229, 0) 88px),
-    linear-gradient(0deg, rgba(16, 16, 16, 0.2) 0, rgba(242, 238, 229, 0) 86px),
+    linear-gradient(180deg, rgba(16, 16, 16, 0.13) 0, rgba(242, 238, 229, 0) 58px),
+    linear-gradient(0deg, rgba(16, 16, 16, 0.12) 0, rgba(242, 238, 229, 0) 56px),
     var(--paper);
-  border-top: 1px solid rgba(216, 242, 75, 0.16);
-  border-bottom: 1px solid rgba(216, 242, 75, 0.14);
+  border-top: 1px solid rgba(216, 242, 75, 0.13);
+  border-bottom: 1px solid rgba(216, 242, 75, 0.11);
   box-shadow:
-    inset 0 30px 46px -42px rgba(0, 0, 0, 0.7),
-    inset 0 -30px 46px -42px rgba(0, 0, 0, 0.64);
+    inset 0 20px 30px -30px rgba(0, 0, 0, 0.42),
+    inset 0 -20px 30px -30px rgba(0, 0, 0, 0.38);
   color: var(--paper-text);
 }
 
@@ -368,7 +368,7 @@ h3 {
   left: max(16px, calc((100% - var(--max)) / 2));
   height: 1px;
   content: "";
-  background: linear-gradient(90deg, transparent, rgba(216, 242, 75, 0.42), transparent);
+  background: linear-gradient(90deg, transparent, rgba(216, 242, 75, 0.32), transparent);
   pointer-events: none;
 }
 
