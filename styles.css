@@ -341,12 +341,44 @@ h3 {
 }
 
 .plans-section {
+  position: relative;
   width: 100%;
   max-width: none;
+  padding-top: 98px;
+  padding-bottom: 98px;
   padding-right: max(16px, calc((100% - var(--max)) / 2));
   padding-left: max(16px, calc((100% - var(--max)) / 2));
-  background: var(--paper);
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(16, 16, 16, 0.22) 0, rgba(242, 238, 229, 0) 88px),
+    linear-gradient(0deg, rgba(16, 16, 16, 0.2) 0, rgba(242, 238, 229, 0) 86px),
+    var(--paper);
+  border-top: 1px solid rgba(216, 242, 75, 0.16);
+  border-bottom: 1px solid rgba(216, 242, 75, 0.14);
+  box-shadow:
+    inset 0 30px 46px -42px rgba(0, 0, 0, 0.7),
+    inset 0 -30px 46px -42px rgba(0, 0, 0, 0.64);
   color: var(--paper-text);
+}
+
+.plans-section::before,
+.plans-section::after {
+  position: absolute;
+  right: max(16px, calc((100% - var(--max)) / 2));
+  left: max(16px, calc((100% - var(--max)) / 2));
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(216, 242, 75, 0.42), transparent);
+  pointer-events: none;
+}
+
+.plans-section::before {
+  top: 22px;
+}
+
+.plans-section::after {
+  bottom: 22px;
+  opacity: 0.7;
 }
 
 .plans-section .eyebrow {
@@ -479,13 +511,6 @@ h3 {
   border-top: 1px solid var(--line);
 }
 
-.map-card {
-  padding: 24px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-}
-
 .location-details {
   display: grid;
   gap: 1px;
@@ -516,20 +541,134 @@ h3 {
   font-weight: 600;
 }
 
-.map-card {
+.location-card {
+  position: relative;
   min-height: 390px;
-  padding: 0;
   overflow: hidden;
+  display: grid;
+  align-content: end;
+  padding: 28px;
+  background:
+    linear-gradient(145deg, rgba(216, 242, 75, 0.13), transparent 36%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02)),
+    #171717;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
 
-.map-card iframe {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: 390px;
-  border: 0;
-  filter: grayscale(0.12) contrast(1.03);
+.location-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 22px 22px auto;
+  width: 110px;
+  height: 110px;
+  border: 1px solid rgba(216, 242, 75, 0.26);
+  border-radius: 50%;
+  opacity: 0.55;
+}
+
+.location-map-art {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0.95;
+}
+
+.location-map-art::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent 82%);
+}
+
+.map-line {
+  position: absolute;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.17);
+  border-radius: 999px;
+  transform-origin: left center;
+}
+
+.line-a {
+  top: 25%;
+  left: -4%;
+  width: 68%;
+  transform: rotate(-13deg);
+}
+
+.line-b {
+  top: 46%;
+  right: -10%;
+  width: 78%;
+  transform: rotate(19deg);
+}
+
+.line-c {
+  bottom: 29%;
+  left: 14%;
+  width: 52%;
+  background: rgba(216, 242, 75, 0.38);
+  transform: rotate(-28deg);
+}
+
+.map-pin {
+  position: absolute;
+  top: 30%;
+  left: 52%;
+  width: 52px;
+  height: 52px;
+  background: var(--accent);
+  border: 8px solid rgba(23, 23, 23, 0.98);
+  border-radius: 50% 50% 50% 0;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.42);
+  transform: rotate(-45deg);
+}
+
+.map-pin::after {
+  content: "";
+  position: absolute;
+  inset: 11px;
+  background: var(--paper-text);
+  border-radius: 50%;
+}
+
+.location-card-content {
+  position: relative;
+  z-index: 1;
+  max-width: 520px;
+}
+
+.location-kicker {
+  margin: 0 0 9px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.location-card h3 {
+  margin: 0;
+  font-size: clamp(1.55rem, 3vw, 2.35rem);
+  line-height: 1.08;
+}
+
+.location-card p {
+  max-width: 430px;
+  margin: 14px 0 0;
+  color: var(--muted);
+}
+
+.location-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
 }
 
 .faq-section {
@@ -886,7 +1025,8 @@ h3 {
   }
 
   .hero-actions .button,
-  .final-actions .button {
+  .final-actions .button,
+  .location-actions .button {
     width: 100%;
   }
 
@@ -895,6 +1035,8 @@ h3 {
   }
 
   .plans-section {
+    padding-top: 78px;
+    padding-bottom: 78px;
     padding-right: 16px;
     padding-left: 16px;
   }
